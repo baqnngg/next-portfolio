@@ -17,7 +17,7 @@ export default function Project({Projects}){
                 <h1>프로젝트</h1>
                 <h3>총 프로젝트 : {Projects.results.length}</h3>
                 <Grid container justifyContent="center" spacing={10}>
-                    {Projects.results.map((aProject) => (
+                    {Projects && Projects.results.map((aProject) => (
                         <ProjectItem key={aProject.id} data={aProject}/>
                     ))};
                 </Grid>
