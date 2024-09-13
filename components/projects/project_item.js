@@ -54,11 +54,11 @@ export default function ProjectItem({ data }) {
             sx={{border: "1px solid white",borderRadius: "4px","&:hover": { border: "1px solid #007FFF" },}}
             onClick={() => {router.push(Link);
             }}>Visit Link</Button>
-            <Button
+            {/* <Button
             size="small"
             sx={{border: "1px solid white",borderRadius: "4px","&:hover": { border: "1px solid #007FFF" },}}
             onClick={() => {router.push(Link);
-            }}>Open Demo</Button>
+            }}>Open Demo</Button> */}
         </CardActions>
         </Card>
     );
