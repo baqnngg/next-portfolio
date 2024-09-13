@@ -4,15 +4,11 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Router, useRouter } from "next/router";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
-export default function ProjectItem({data}) {
+export default function ProjectItem({ data }) {
     const title = data.properties.이름.title[0]?.plain_text;
-    // const tag = data.properties.태그.multi_select.map((name) => {
-    //     console.log(name);
-    // });
-    
+    const tags = data.properties?.태그.multi_select;
     const startDate = data.properties?.작업기간.date.start;
     const endDate = data.properties?.작업기간.date.end;
     const description = data.properties?.설명.rich_text[0].plain_text;
@@ -29,35 +25,41 @@ export default function ProjectItem({data}) {
         let currentDate = new Date(StartDate);
 
         while (currentDate <= EndDate) {
-            workdays++;
-            currentDate.setDate(currentDate.getDate() + 1);
+        workdays++;
+        currentDate.setDate(currentDate.getDate() + 1);
         }
-        return (workdays);
+        return workdays;
     }
 
     return (
-        <Card sx={{width: 320}}>
-            <CardMedia
-                sx={{height : 150}}
-                image={imgSrc}
-                title={title}
-            />
-            <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                    {title}
-                </Typography>
-                <Typography variant="body1" sx={{color : 'text.secondary'}}>
-                    {countWorkDays(startDate,endDate)}일
-                </Typography>
-                <Typography variant="body2" sx={{color : 'text.secondary'}}>
-                    {description}
-                </Typography>
-            </CardContent>
-            <CardActions>
-                <Button size="small" onClick={() => {
-                    router.push(Link)
-                }}>Visit Link</Button>
-            </CardActions>
+        <Card sx={{ width: 320, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+        <CardMedia sx={{ height: 150 }} image={imgSrc} title={title} />
+        <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+                {title}
+            </Typography>
+            <Typography variant="body1" sx={{ color: "text.secondary" }}>
+                {countWorkDays(startDate, endDate)}일
+            </Typography>
+            <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                {description}
+            </Typography>
+            <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                {tags.map((atag) => (<span key={atag.id}>●{atag.name} </span>))}
+            </Typography>
+        </CardContent>
+        <CardActions sx={{ mt: "auto" }}>
+            <Button
+            size="small"
+            sx={{border: "1px solid white",borderRadius: "4px","&:hover": { border: "1px solid #007FFF" },}}
+            onClick={() => {router.push(Link);
+            }}>Visit Link</Button>
+            <Button
+            size="small"
+            sx={{border: "1px solid white",borderRadius: "4px","&:hover": { border: "1px solid #007FFF" },}}
+            onClick={() => {router.push(Link);
+            }}>Open Demo</Button>
+        </CardActions>
         </Card>
     );
 }
