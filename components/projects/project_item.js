@@ -6,6 +6,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useRouter } from "next/router";
 
+// const router = useRouter();
+
 export default function ProjectItem({ data }) {
     const title = data.properties.이름.title[0]?.plain_text;
     const tags = data.properties?.태그.multi_select;
@@ -14,6 +16,7 @@ export default function ProjectItem({ data }) {
     const description = data.properties?.설명.rich_text[0].plain_text;
     const Link = data.properties?.Link.url;
     const imgSrc = data.cover.file?.url || data.cover.external.url;
+    const demo = data.properties?.Demo.url;
 
     const router = useRouter();
 
@@ -49,6 +52,8 @@ export default function ProjectItem({ data }) {
             </Typography>
         </CardContent>
         <CardActions sx={{ mt: "auto" }}>
+            {demo && 
+            (<Button size="small" onClick={() => {router.push(demo);}}>View Demo</Button>)}
             <Button
             size="small"
             sx={{border: "1px solid white",borderRadius: "4px","&:hover": { border: "1px solid #007FFF" },}}
