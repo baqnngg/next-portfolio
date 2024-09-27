@@ -5,6 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useRouter } from "next/router";
+import styles from './project_item.module.css'
 
 // const router = useRouter();
 
@@ -15,8 +16,8 @@ export default function ProjectItem({ data }) {
     const endDate = data.properties?.작업기간.date.end;
     const description = data.properties?.설명.rich_text[0].plain_text;
     const Link = data.properties?.Link.url;
-    const imgSrc = data.cover.file?.url || data.cover.external.url;
     const demo = data.properties?.Demo.url;
+    const imgUrl = data.properties?.image.url;
 
     const router = useRouter();
 
@@ -35,8 +36,8 @@ export default function ProjectItem({ data }) {
     }
 
     return (
-        <Card sx={{ width: 320, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-        <CardMedia sx={{ height: 150 }} image={imgSrc} title={title} />
+        <Card className={styles.cardItem} sx={{ width: 320, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+        <CardMedia sx={{ height: 150 }} image={imgUrl} title={title} />
         <CardContent>
             <Typography gutterBottom variant="h5" component="div">
                 {title}
@@ -53,7 +54,11 @@ export default function ProjectItem({ data }) {
         </CardContent>
         <CardActions sx={{ mt: "auto" }}>
             {demo && 
-            (<Button size="small" onClick={() => {router.push(demo);}}>View Demo</Button>)}
+            (<Button
+                size="small"
+                sx={{border: "1px solid white",borderRadius: "4px","&:hover": { border: "1px solid #007FFF" },}}
+                onClick={() => {router.push(demo);
+                }}>View Demo</Button>)}
             <Button
             size="small"
             sx={{border: "1px solid white",borderRadius: "4px","&:hover": { border: "1px solid #007FFF" },}}
