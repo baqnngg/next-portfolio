@@ -34,6 +34,7 @@ export default function Mainpage(){
                             loop
                             animationData={lottiejson}
                             play
+                            style={{margin:0,marginBottom:"340px"}}
                         />
                     </div>
                 </Grid>

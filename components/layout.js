@@ -6,7 +6,7 @@ export default function Layout({children}){
     return(
         <>
             <Header></Header>
-            <Container fixed style={{marginBottom:"20vh"}}>
+            <Container fixed style={{marginBottom:"20vh", marginBottom:"5%"}}>
                 <div>{children}</div>
             </Container>
             <Footer></Footer>
