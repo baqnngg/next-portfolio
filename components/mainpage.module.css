@@ -1,71 +1,104 @@
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 2rem;
+    padding: 6rem 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 6rem;
     align-items: center;
     min-height: calc(100vh - 200px);
 }
 
 .introduce {
-    animation: fadeIn 0.8s ease-out;
+    animation: slideInLeft 1s ease-out;
 }
 
 .introduce h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #333333;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    line-height: 1.1;
 }
 
 .introduce h2 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 600;
-    color: #2563eb;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 2rem;
 }
 
 .introduce p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #666666;
-    margin-bottom: 2.5rem;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #4a5568;
+    margin-bottom: 3rem;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 2rem;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .button {
     display: inline-block;
-    background: #2563eb;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 1rem 2rem;
-    border-radius: 8px;
+    padding: 1.25rem 2.5rem;
+    border-radius: 50px;
     font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.2s ease;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
     border: none;
     cursor: pointer;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.button:hover::before {
+    left: 100%;
 }
 
 .button:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
 }
 
 .lottieContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: fadeIn 0.8s ease-out 0.2s both;
+    animation: slideInRight 1s ease-out 0.2s both;
+}
+
+.lottieContainer > div {
+    animation: float 3s ease-in-out infinite;
 }
 
 @media (max-width: 768px) {
     .container {
         grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 2rem 1rem;
+        gap: 3rem;
+        padding: 3rem 1rem;
         text-align: center;
     }
     
@@ -74,10 +107,16 @@
     }
     
     .introduce h2 {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
     }
     
     .introduce p {
+        font-size: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .button {
+        padding: 1rem 2rem;
         font-size: 1rem;
     }
 }

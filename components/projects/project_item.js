@@ -43,13 +43,13 @@ export default function ProjectItem({ data }) {
                 {title}
             </Typography>
             <Typography variant="body1" sx={{ color: "text.secondary", marginBottom: "1rem" }}>
-                {countWorkDays(startDate, endDate)}일
+                ⏱️ {countWorkDays(startDate, endDate)}일
             </Typography>
             <Typography variant="body2" sx={{ color: "text.secondary", marginBottom: "1rem" }}>
                 {description}
             </Typography>
             <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                {tags.map((atag) => (<span key={atag.id}>{atag.name} </span>))}
+                {tags.map((atag) => (<span key={atag.id}>#{atag.name} </span>))}
             </Typography>
         </CardContent>
         <CardActions sx={{ mt: "auto" }}>
@@ -57,11 +57,11 @@ export default function ProjectItem({ data }) {
             (<Button
                 size="small"
                 onClick={() => {router.push(demo);
-                }}>Demo</Button>)}
+                }}>🎮 Demo</Button>)}
             <Button
             size="small"
             onClick={() => {router.push(Link);
-            }}>Link</Button>
+            }}>🔗 Link</Button>
         </CardActions>
         </Card>
     );
