@@ -6,6 +6,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useRouter } from "next/router";
 import styles from './project_item.module.css'
+import LinkIcon from '@mui/icons-material/Link';
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 
 // const router = useRouter();
 
@@ -56,12 +58,17 @@ export default function ProjectItem({ data }) {
             {demo && 
             (<Button
                 size="small"
-                onClick={() => {router.push(demo);
-                }}>🎮 Demo</Button>)}
+                className={"demo"}
+                onClick={() => {router.push(demo);}}
+            >
+                <SportsEsportsIcon />DEMO
+            </Button>)}
             <Button
             size="small"
-            onClick={() => {router.push(Link);
-            }}>🔗 Link</Button>
+            onClick={() => {router.push(Link);}}
+            >
+                <LinkIcon />LINK
+            </Button>
         </CardActions>
         </Card>
     );
