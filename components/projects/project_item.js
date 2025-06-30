@@ -53,20 +53,23 @@ export default function ProjectItem({ data }) {
             </Typography>
         </CardContent>
         <CardActions sx={{ mt: "auto" }}>
-            {demo && 
-            (<Button
-                size="small"
-                className={"demo"}
-                onClick={() => {router.push(demo);}}
-            >
-                DEMO
-            </Button>)}
-            <Button
-            size="small"
-            onClick={() => {router.push(Link);}}
-            >
-                LINK
-            </Button>
+            {demo && demo.trim() && (
+                <Button
+                    size="small"
+                    className={"demo"}
+                    onClick={() => {router.push(demo);}}
+                >
+                    DEMO
+                </Button>
+            )}
+            {Link && Link.trim() && (
+                <Button
+                    size="small"
+                    onClick={() => {router.push(Link);}}
+                >
+                    LINK
+                </Button>
+            )}
         </CardActions>
         </Card>
     );
