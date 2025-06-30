@@ -51,14 +51,14 @@ export default function ProjectItem({ data }) {
                 {tags.map((atag) => (<span key={atag.id}>#{atag.name} </span>))}
             </Typography>
         </CardContent>
-        <CardActions sx={{ mt: "auto", gap: "0.5rem" }}>
+        <CardActions sx={{ mt: "auto", gap: "0.3rem" }}>
             {demo && demo.trim() && (
                 <button
                     className="btn btn-success"
                     type="button"
                     onClick={() => router.push(demo)}
                 >
-                    DEMO
+                    <span role="img" aria-label="demo">🎮</span> Demo
                 </button>
             )}
             {Link && Link.trim() && (
@@ -67,7 +67,7 @@ export default function ProjectItem({ data }) {
                     type="button"
                     onClick={() => router.push(Link)}
                 >
-                    LINK
+                    <span role="img" aria-label="link">🔗</span> Link
                 </button>
             )}
         </CardActions>
