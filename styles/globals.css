@@ -105,3 +105,64 @@ button {
 ::-webkit-scrollbar-thumb:hover {
     background: #a0aec0;
 }
+
+/* Bootstrap 버튼 스타일 */
+.btn {
+    display: inline-block;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: #2563eb;
+    border: 1.5px solid #2563eb;
+    padding: 0.45rem 1.2rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.375rem;
+    transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.04);
+    cursor: pointer;
+}
+.btn:hover, .btn:focus {
+    color: #fff;
+    background-color: #174ea6;
+    border-color: #174ea6;
+}
+.btn:active {
+    color: #fff;
+    background-color: #143b7d;
+    border-color: #143b7d;
+}
+.btn-success {
+    background-color: #43a047;
+    border-color: #43a047;
+}
+.btn-success:hover, .btn-success:focus {
+    background-color: #256029;
+    border-color: #256029;
+}
+.btn-success:active {
+    background-color: #17451a;
+    border-color: #17451a;
+}
+.btn-outline-primary {
+    color: #2563eb;
+    background-color: #fff;
+    border-color: #2563eb;
+}
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+    color: #fff;
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+.btn-outline-success {
+    color: #43a047;
+    background-color: #fff;
+    border-color: #43a047;
+}
+.btn-outline-success:hover, .btn-outline-success:focus {
+    color: #fff;
+    background-color: #43a047;
+    border-color: #43a047;
+}

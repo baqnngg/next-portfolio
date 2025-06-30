@@ -2,7 +2,6 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useRouter } from "next/router";
 import styles from './project_item.module.css'
@@ -52,23 +51,24 @@ export default function ProjectItem({ data }) {
                 {tags.map((atag) => (<span key={atag.id}>#{atag.name} </span>))}
             </Typography>
         </CardContent>
-        <CardActions sx={{ mt: "auto" }}>
+        <CardActions sx={{ mt: "auto", gap: "0.5rem" }}>
             {demo && demo.trim() && (
-                <Button
-                    size="small"
-                    className={"demo"}
-                    onClick={() => {router.push(demo);}}
+                <button
+                    className="btn btn-success"
+                    type="button"
+                    onClick={() => router.push(demo)}
                 >
                     DEMO
-                </Button>
+                </button>
             )}
             {Link && Link.trim() && (
-                <Button
-                    size="small"
-                    onClick={() => {router.push(Link);}}
+                <button
+                    className="btn btn-outline-primary"
+                    type="button"
+                    onClick={() => router.push(Link)}
                 >
                     LINK
-                </Button>
+                </button>
             )}
         </CardActions>
         </Card>
