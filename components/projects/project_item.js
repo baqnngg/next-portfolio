@@ -43,62 +43,25 @@ export default function ProjectItem({ data }) {
                 {title}
             </Typography>
             <Typography variant="body1" sx={{ color: "text.secondary", marginBottom: "1rem" }}>
-                ⏱️ {countWorkDays(startDate, endDate)}일
+                {countWorkDays(startDate, endDate)}일
             </Typography>
             <Typography variant="body2" sx={{ color: "text.secondary", marginBottom: "1rem" }}>
                 {description}
             </Typography>
             <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                {tags.map((atag) => (<span key={atag.id}>●{atag.name} </span>))}
+                {tags.map((atag) => (<span key={atag.id}>{atag.name} </span>))}
             </Typography>
         </CardContent>
         <CardActions sx={{ mt: "auto" }}>
             {demo && 
             (<Button
                 size="small"
-                sx={{
-                    background: 'linear-gradient(45deg, #667eea, #764ba2)',
-                    color: 'white',
-                    borderRadius: '25px',
-                    padding: '8px 16px',
-                    fontWeight: 600,
-                    textTransform: 'none',
-                    transition: 'all 0.3s ease',
-                    border: 'none',
-                    boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
-                    '&:hover': {
-                        background: 'linear-gradient(45deg, #764ba2, #667eea)',
-                        transform: 'translateY(-2px)',
-                        boxShadow: '0 8px 25px rgba(0,0,0,0.3)',
-                    }
-                }}
                 onClick={() => {router.push(demo);
-                }}>🎮 Demo 보기</Button>)}
+                }}>Demo</Button>)}
             <Button
             size="small"
-            sx={{
-                background: 'linear-gradient(45deg, #667eea, #764ba2)',
-                color: 'white',
-                borderRadius: '25px',
-                padding: '8px 16px',
-                fontWeight: 600,
-                textTransform: 'none',
-                transition: 'all 0.3s ease',
-                border: 'none',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
-                '&:hover': {
-                    background: 'linear-gradient(45deg, #764ba2, #667eea)',
-                    transform: 'translateY(-2px)',
-                    boxShadow: '0 8px 25px rgba(0,0,0,0.3)',
-                }
-            }}
             onClick={() => {router.push(Link);
-            }}>🔗 링크 방문</Button>
-            {/* <Button
-            size="small"
-            sx={{border: "1px solid white",borderRadius: "4px","&:hover": { border: "1px solid #007FFF" },}}
-            onClick={() => {router.push(Link);
-            }}>Open Demo</Button> */}
+            }}>Link</Button>
         </CardActions>
         </Card>
     );

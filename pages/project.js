@@ -2,8 +2,7 @@ import { TOKEN, DATABASE_ID } from "@/config"
 import Layout from "@/components/layout";
 import Head from "next/head";
 import ProjectItem from "@/components/projects/project_item";
-import Grid from "@mui/material/Grid2";
-import { Box, Typography } from "@mui/material";
+import styles from './project.module.css';
 
 export default function Project({ Projects }) {
     return (
@@ -16,54 +15,20 @@ export default function Project({ Projects }) {
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
                 
-                <Box 
-                    sx={{
-                        textAlign: 'center',
-                        marginBottom: '3rem',
-                        padding: '2rem',
-                        background: 'rgba(255, 255, 255, 0.1)',
-                        backdropFilter: 'blur(10px)',
-                        borderRadius: '20px',
-                        border: '1px solid rgba(255, 255, 255, 0.2)',
-                        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
-                    }}
-                >
-                    <Typography 
-                        variant="h2" 
-                        component="h1"
-                        sx={{
-                            background: 'linear-gradient(45deg, #fff, #f0f0f0)',
-                            WebkitBackgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent',
-                            backgroundClip: 'text',
-                            fontWeight: 700,
-                            marginBottom: '1rem',
-                            animation: 'fadeInUp 1s ease-out'
-                        }}
-                    >
-                        🚀 프로젝트
-                    </Typography>
-                    <Typography 
-                        variant="h6"
-                        sx={{
-                            color: 'rgba(255, 255, 255, 0.8)',
-                            fontWeight: 400,
-                            animation: 'fadeInUp 1s ease-out 0.2s both'
-                        }}
-                    >
-                        총 프로젝트: <strong style={{color: 'white'}}>{Projects.results.length}</strong>개
-                    </Typography>
-                </Box>
-                
-                <Grid container justifyContent="center" spacing={3}>
-                    {Projects && Projects.results.map((aProject, index) => (
-                        <Grid key={aProject.id} item>
-                            <div style={{animation: `fadeInUp 0.8s ease-out ${index * 0.1}s both`}}>
+                <div className={styles.container}>
+                    <div className={styles.header}>
+                        <h1>프로젝트</h1>
+                        <p>총 {Projects.results.length}개의 프로젝트</p>
+                    </div>
+                    
+                    <div className={styles.grid}>
+                        {Projects && Projects.results.map((aProject, index) => (
+                            <div key={aProject.id} style={{animationDelay: `${index * 0.1}s`}}>
                                 <ProjectItem data={aProject}/>
                             </div>
-                        </Grid>
-                    ))}
-                </Grid>
+                        ))}
+                    </div>
+                </div>
             </Layout>
         </>
     );
