@@ -1,9 +1,120 @@
 .cardItem {
-    margin-top: 50px;
-    transition: transform 0.1s ease;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 20px !important;
+    overflow: hidden;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    position: relative;
+}
+
+.cardItem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+    pointer-events: none;
+}
+
+.cardItem:hover::before {
+    transform: translateX(100%);
 }
 
 .cardItem:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.cardItem .MuiCardMedia-root {
+    border-radius: 20px 20px 0 0 !important;
+    transition: transform 0.3s ease;
+}
+
+.cardItem:hover .MuiCardMedia-root {
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.cardItem .MuiCardContent-root {
+    padding: 1.5rem !important;
+}
+
+.cardItem .MuiTypography-h5 {
+    color: white !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.5rem !important;
+    font-size: 1.3rem !important;
+}
+
+.cardItem .MuiTypography-body1,
+.cardItem .MuiTypography-body2 {
+    color: rgba(255, 255, 255, 0.8) !important;
+    margin-bottom: 0.5rem !important;
+    line-height: 1.6 !important;
+}
+
+.cardItem .MuiCardActions-root {
+    padding: 1rem 1.5rem 1.5rem !important;
+    gap: 0.5rem;
+}
+
+.cardItem .MuiButton-root {
+    background: linear-gradient(45deg, #667eea, #764ba2) !important;
+    color: white !important;
+    border-radius: 25px !important;
+    padding: 0.5rem 1rem !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.cardItem .MuiButton-root:hover {
+    background: linear-gradient(45deg, #764ba2, #667eea) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 태그 스타일링 */
+.cardItem span {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 15px;
+    margin: 0.2rem;
+    font-size: 0.8rem;
+    color: white;
+    backdrop-filter: blur(5px);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .cardItem {
+        margin: 0 1rem;
+    }
+    
+    .cardItem .MuiTypography-h5 {
+        font-size: 1.1rem !important;
+    }
+    
+    .cardItem .MuiCardContent-root {
+        padding: 1rem !important;
+    }
+    
+    .cardItem .MuiCardActions-root {
+        padding: 0.5rem 1rem 1rem !important;
+        flex-direction: column;
+    }
+    
+    .cardItem .MuiButton-root {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
 }

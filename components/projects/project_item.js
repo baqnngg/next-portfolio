@@ -42,10 +42,10 @@ export default function ProjectItem({ data }) {
             <Typography gutterBottom variant="h5" component="div">
                 {title}
             </Typography>
-            <Typography variant="body1" sx={{ color: "text.secondary" }}>
-                {countWorkDays(startDate, endDate)}일
+            <Typography variant="body1" sx={{ color: "text.secondary", marginBottom: "1rem" }}>
+                ⏱️ {countWorkDays(startDate, endDate)}일
             </Typography>
-            <Typography variant="body2" sx={{ color: "text.secondary" }}>
+            <Typography variant="body2" sx={{ color: "text.secondary", marginBottom: "1rem" }}>
                 {description}
             </Typography>
             <Typography variant="body2" sx={{ color: "text.secondary" }}>
@@ -56,14 +56,44 @@ export default function ProjectItem({ data }) {
             {demo && 
             (<Button
                 size="small"
-                sx={{border: "1px solid white",borderRadius: "4px","&:hover": { border: "1px solid #007FFF" },}}
+                sx={{
+                    background: 'linear-gradient(45deg, #667eea, #764ba2)',
+                    color: 'white',
+                    borderRadius: '25px',
+                    padding: '8px 16px',
+                    fontWeight: 600,
+                    textTransform: 'none',
+                    transition: 'all 0.3s ease',
+                    border: 'none',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
+                    '&:hover': {
+                        background: 'linear-gradient(45deg, #764ba2, #667eea)',
+                        transform: 'translateY(-2px)',
+                        boxShadow: '0 8px 25px rgba(0,0,0,0.3)',
+                    }
+                }}
                 onClick={() => {router.push(demo);
-                }}>View Demo</Button>)}
+                }}>🎮 Demo 보기</Button>)}
             <Button
             size="small"
-            sx={{border: "1px solid white",borderRadius: "4px","&:hover": { border: "1px solid #007FFF" },}}
+            sx={{
+                background: 'linear-gradient(45deg, #667eea, #764ba2)',
+                color: 'white',
+                borderRadius: '25px',
+                padding: '8px 16px',
+                fontWeight: 600,
+                textTransform: 'none',
+                transition: 'all 0.3s ease',
+                border: 'none',
+                boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
+                '&:hover': {
+                    background: 'linear-gradient(45deg, #764ba2, #667eea)',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 8px 25px rgba(0,0,0,0.3)',
+                }
+            }}
             onClick={() => {router.push(Link);
-            }}>Visit Link</Button>
+            }}>🔗 링크 방문</Button>
             {/* <Button
             size="small"
             sx={{border: "1px solid white",borderRadius: "4px","&:hover": { border: "1px solid #007FFF" },}}

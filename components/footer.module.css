@@ -1,9 +1,65 @@
 .footer {
-    background-color: #f8f9fa;
-    border-top: 1px solid #e7e7e7;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem 0;
     text-align: center;
-    padding: 5px;
+    color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.footer p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.footer p:first-child {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.footer p:last-child {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.footer p:last-child:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .footer {
+        padding: 1.5rem 0;
+    }
+    
+    .footer p {
+        font-size: 0.9rem;
+    }
+    
+    .footer p:first-child {
+        font-size: 1.1rem;
+    }
+    
+    .footer p:last-child {
+        font-size: 1rem;
+    }
 }
